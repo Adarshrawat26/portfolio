@@ -2,7 +2,10 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, GitFork, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { experience, skills, projects, stats, links } from './data';
 import { SkillIcon } from './SkillIcon';
+import DotNav from './DotNav';
+import CustomCursor from './CustomCursor';
 import './index.css';
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 14 },
@@ -15,6 +18,19 @@ function Label({ children }: { children: string }) {
     <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#999] mb-5">
       {children}
     </p>
+  );
+}
+
+function SectionTitle({ children }: { children: string }) {
+  return (
+    <div className="mb-5 text-center">
+      <h2
+        className="text-[28px] sm:text-[34px] text-[#0a0a0a] leading-none tracking-tight"
+        style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontWeight: 400 }}
+      >
+        {children}
+      </h2>
+    </div>
   );
 }
 
@@ -38,10 +54,12 @@ function Divider() {
 export default function App() {
   return (
     <div className="min-h-screen w-full bg-[#F9F9F9]" style={{ fontFamily: "'Nunito Sans', system-ui, sans-serif" }}>
-      <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 py-8 lg:py-12 pb-20 space-y-3">
+      <CustomCursor />
+      <DotNav />
+      <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 py-8 lg:py-12 pb-20 space-y-12">
 
         {/* ── HERO ── */}
-        <motion.div {...fadeUp(0)} className="w-full bg-white border border-[#EBEBEB] rounded-2xl p-6 sm:p-8">
+        <motion.div id="hero" {...fadeUp(0)} className="w-full bg-white border border-[#EBEBEB] rounded-2xl p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
 
             {/* Photo */}
@@ -61,8 +79,11 @@ export default function App() {
             <div className="flex-1 min-w-0 w-full">
               <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
                 <div>
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-1.5px] leading-[1.05] text-[#0a0a0a]">
-                    Adarsh Rawat
+                  <h1
+                    className="text-3xl sm:text-4xl lg:text-[42px] leading-[1.05] text-[#0a0a0a]"
+                    style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, fontStyle: 'italic', letterSpacing: '-0.5px' }}
+                  >
+                    Adarsh Kumar Rawat
                   </h1>
                   <p className="text-base sm:text-[17px] text-[#444] mt-2.5 font-semibold">
                     Enterprise Product Designer &amp; Full Stack Developer
@@ -103,7 +124,9 @@ export default function App() {
         </motion.div>
 
         {/* ── EXPERIENCE + SKILLS ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_340px] gap-3">
+        <div id="experience">
+          <SectionTitle>Experience & Skills</SectionTitle>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_340px] gap-4">
 
           {/* Experience */}
           <motion.div {...fadeUp(0.07)} className="w-full bg-white border border-[#EBEBEB] rounded-2xl p-6 sm:p-7">
@@ -144,23 +167,24 @@ export default function App() {
             </div>
           </motion.div>
         </div>
+        </div>
 
         {/* ── PROJECTS ── */}
+        <div id="projects">
+          <SectionTitle>Selected Projects</SectionTitle>
         <motion.div {...fadeUp(0.14)} className="w-full bg-white border border-[#EBEBEB] rounded-2xl p-6 sm:p-7">
           <div className="flex items-center justify-between mb-5">
             <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#999]">Selected Projects</p>
             <p className="text-[12.5px] text-[#BBB] font-medium flex items-center gap-1.5">
               <ArrowUpRight size={13} className="text-[#5B4CF5]" />
-              Click any highlighted card to open the live project
+              Click a card to open the live project
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {projects.map((p, i) => {
-              const isLink = !!p.url;
-              const Wrap = isLink ? 'a' : 'div';
-              const props = isLink ? { href: p.url, target: '_blank', rel: 'noopener noreferrer' } : {};
-
+              const Wrap = p.url ? 'a' : 'div';
+              const wrapProps = p.url ? { href: p.url, target: '_blank', rel: 'noopener noreferrer' } : {};
               return (
                 <motion.div
                   key={p.name}
@@ -170,23 +194,16 @@ export default function App() {
                   className="h-full"
                 >
                   <Wrap
-                    {...props}
+                    {...wrapProps}
                     className={`group flex flex-col h-full border border-[#EBEBEB] rounded-xl p-5 bg-white transition-all duration-150
-                      ${isLink ? 'hover:border-[#5B4CF5] hover:shadow-[0_2px_12px_rgba(91,76,245,0.08)] cursor-pointer' : 'cursor-default'}`}
+                      ${p.url ? 'hover:border-[#5B4CF5] hover:shadow-[0_2px_12px_rgba(91,76,245,0.08)] cursor-pointer' : 'cursor-default'}`}
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-[12px] font-bold text-[#CCC]">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      {isLink && (
-                        <ArrowUpRight size={15}
-                          className="text-[#CCC] group-hover:text-[#5B4CF5] transition-colors" />
-                      )}
+                      <span className="text-[12px] font-bold text-[#CCC]">{String(i + 1).padStart(2, '0')}</span>
+                      {p.url && <ArrowUpRight size={15} className="text-[#CCC] group-hover:text-[#5B4CF5] transition-colors" />}
                     </div>
-
                     <p className="text-[16px] font-bold text-[#111] leading-snug mb-2">{p.name}</p>
                     <p className="text-[14px] text-[#555] leading-relaxed mb-3 flex-1">{p.desc}</p>
-
                     <div className="flex flex-wrap gap-1.5 mt-auto">
                       {p.tags.map((t) => <Chip key={t.name} icon={t.icon}>{t.name}</Chip>)}
                     </div>
@@ -197,10 +214,12 @@ export default function App() {
 
           </div>
         </motion.div>
+        </div>
 
         {/* ── EDUCATION ── */}
+        <div id="education">
+          <SectionTitle>Education</SectionTitle>
         <motion.div {...fadeUp(0.18)} className="w-full bg-white border border-[#EBEBEB] rounded-2xl p-6 sm:p-7">
-          <Label>Education</Label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
             <div className="border border-[#EBEBEB] rounded-xl p-5">
@@ -217,8 +236,11 @@ export default function App() {
 
           </div>
         </motion.div>
+        </div>
 
         {/* ── TESTIMONIAL ── */}
+        <div id="testimonial">
+          <SectionTitle>Kind Words</SectionTitle>
         <motion.div {...fadeUp(0.2)} className="w-full bg-[#5B4CF5] rounded-2xl p-6 sm:p-8 relative overflow-hidden">
 
           {/* Background decoration */}
@@ -248,6 +270,7 @@ export default function App() {
             </div>
           </div>
         </motion.div>
+        </div>
 
         {/* ── FOOTER ── */}
         <motion.footer {...fadeUp(0.2)}
