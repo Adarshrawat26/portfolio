@@ -218,6 +218,37 @@ export default function App() {
           </div>
         </motion.div>
 
+        {/* ── TESTIMONIAL ── */}
+        <motion.div {...fadeUp(0.2)} className="w-full bg-[#5B4CF5] rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-[0.03] rounded-full translate-x-20 -translate-y-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-[0.03] rounded-full -translate-x-16 translate-y-16 pointer-events-none" />
+
+          <div className="relative">
+            {/* Quote mark */}
+            <div className="text-[72px] leading-none font-serif text-white opacity-20 mb-2 select-none">"</div>
+
+            <p className="text-[17px] sm:text-[19px] text-white font-medium leading-relaxed max-w-3xl -mt-6">
+              Adarsh, you have been the backbone of NeuAnchor projects. I commend you for your skills, your patience to operate with multiple stakeholders, the way you captured our ideas and converted them to reality, the calm you maintained during multiple last minute changes... and so on.
+            </p>
+
+            <div className="flex items-center gap-4 mt-6 pt-6 border-t border-white border-opacity-20">
+              <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center text-white font-bold text-sm shrink-0">
+                SC
+              </div>
+              <div>
+                <p className="text-white font-bold text-[15px]">Shuchi Chopra</p>
+                <p className="text-white text-[13px] opacity-70">Vice President Operations · Scottish High International School</p>
+              </div>
+              <div className="ml-auto flex items-center gap-1.5 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full px-3 py-1">
+                <ExternalLink size={11} className="text-white opacity-70" />
+                <span className="text-white text-[12px] opacity-70 font-medium">Via LinkedIn</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* ── FOOTER ── */}
         <motion.footer {...fadeUp(0.2)}
           className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 px-1 pt-1 text-[13px] text-[#BBB] font-medium">
