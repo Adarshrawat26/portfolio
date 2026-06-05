@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const MOBILE_MAX_WIDTH = 767;
+
 const sections = [
   { id: 'hero',        label: 'Intro' },
   { id: 'experience',  label: 'Experience' },
@@ -12,6 +14,14 @@ const sections = [
 export default function DotNav() {
   const [active, setActive] = useState('hero');
   const [hovered, setHovered] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth <= MOBILE_MAX_WIDTH);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,8 +48,12 @@ export default function DotNav() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const dotHeight = isMobile ? 5 : 8;
+  const dotInactive = isMobile ? 5 : 8;
+  const dotActive = isMobile ? 14 : 22;
+
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-5">
+    <div className={`fixed top-1/2 -translate-y-1/2 z-50 flex flex-col items-center ${isMobile ? 'right-3 gap-3' : 'right-6 gap-5'}`}>
       {sections.map(({ id, label }) => {
         const isActive  = active === id;
         const isHovered = hovered === id;
@@ -71,8 +85,8 @@ export default function DotNav() {
             {/* Dot / pill */}
             <motion.div
               animate={{
-                width:           isActive ? 22 : 8,
-                height:          8,
+                width:           isActive ? dotActive : dotInactive,
+                height:          dotHeight,
                 backgroundColor: isActive ? '#5B4CF5' : isHovered ? '#999' : '#D4D4D4',
                 borderRadius:    99,
                 scale:           isHovered && !isActive ? 1.2 : 1,

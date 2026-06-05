@@ -5,11 +5,27 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background: #ffffff;
   color: #111111;
   font-family: 'Nunito Sans', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 768px) {
