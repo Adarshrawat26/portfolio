@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, GitFork, ExternalLink, ArrowUpRight, Download } from 'lucide-react';
+import { Mail, GitFork, ExternalLink, ArrowUpRight, Download } from 'lucide-react';
 import { experience, skills, projects, stats, links } from './data';
 import { SkillIcon } from './SkillIcon';
 import DotNav from './DotNav';
@@ -110,7 +110,6 @@ export default function App() {
                 <div className="flex flex-row flex-wrap lg:flex-col lg:items-end gap-2 lg:gap-2 shrink-0">
                   {[
                     { icon: <Mail size={13} />, label: 'adarshrawat474@gmail.com', href: 'mailto:adarshrawat474@gmail.com' },
-                    { icon: <Phone size={13} />, label: '+91 9506493685', href: 'tel:+919506493685' },
                     { icon: <ExternalLink size={13} />, label: 'LinkedIn', href: links.linkedin },
                     { icon: <GitFork size={13} />, label: 'GitHub', href: links.github },
                   ].map(({ icon, label, href }) => (
