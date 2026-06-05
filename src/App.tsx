@@ -6,6 +6,7 @@ import DotNav from './DotNav';
 import CustomCursor from './CustomCursor';
 import Loader from './Loader';
 import GallerySection from './GallerySection';
+import Footer from './Footer';
 import './index.css';
 
 
@@ -283,11 +284,7 @@ export default function App() {
         <GallerySection />
 
         {/* ── FOOTER ── */}
-        <motion.footer {...fadeUp(0.2)}
-          className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 px-1 pt-1 text-[13px] text-[#BBB] font-medium">
-          <span>Adarsh Rawat · adarshrawat474@gmail.com</span>
-          <span>Updated May 2026</span>
-        </motion.footer>
+        <Footer />
 
       </main>
     </div>
