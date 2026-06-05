@@ -4,6 +4,8 @@ import { experience, skills, projects, stats, links } from './data';
 import { SkillIcon } from './SkillIcon';
 import DotNav from './DotNav';
 import CustomCursor from './CustomCursor';
+import Loader from './Loader';
+import GallerySection from './GallerySection';
 import './index.css';
 
 
@@ -54,6 +56,7 @@ function Divider() {
 export default function App() {
   return (
     <div className="min-h-screen w-full bg-[#F9F9F9]" style={{ fontFamily: "'Nunito Sans', system-ui, sans-serif" }}>
+      <Loader />
       <CustomCursor />
       <DotNav />
       <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 py-8 lg:py-12 pb-20 space-y-12">
@@ -69,10 +72,6 @@ export default function App() {
                 alt="Adarsh Rawat"
                 className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-xl object-cover border border-[#E8E8E8]"
               />
-              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap flex items-center gap-1.5 bg-white border border-[#DDEFD8] text-[#2A9D5C] text-[11px] font-bold px-2.5 py-[3px] rounded-full shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2A9D5C] animate-pulse" />
-                Available
-              </span>
             </div>
 
             {/* Info */}
@@ -240,37 +239,38 @@ export default function App() {
 
         {/* ── TESTIMONIAL ── */}
         <div id="testimonial">
-          <SectionTitle>Kind Words</SectionTitle>
-        <motion.div {...fadeUp(0.2)} className="w-full bg-[#5B4CF5] rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-[0.03] rounded-full translate-x-20 -translate-y-20 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-[0.03] rounded-full -translate-x-16 translate-y-16 pointer-events-none" />
-
-          <div className="relative">
-            {/* Quote mark */}
-            <div className="text-[72px] leading-none font-serif text-white opacity-20 mb-2 select-none">"</div>
-
-            <p className="text-[17px] sm:text-[19px] text-white font-medium leading-relaxed max-w-3xl -mt-6">
-              Adarsh, you have been the backbone of NeuAnchor projects. I commend you for your skills, your patience to operate with multiple stakeholders, the way you captured our ideas and converted them to reality, the calm you maintained during multiple last minute changes... and so on.
-            </p>
-
-            <div className="flex items-center gap-4 mt-6 pt-6 border-t border-white border-opacity-20">
-              <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center text-white font-bold text-sm shrink-0">
-                SC
-              </div>
-              <div>
-                <p className="text-white font-bold text-[15px]">Shuchi Chopra</p>
-                <p className="text-white text-[13px] opacity-70">Vice President Operations · Scottish High International School</p>
-              </div>
-              <div className="ml-auto flex items-center gap-1.5 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full px-3 py-1">
-                <ExternalLink size={11} className="text-white opacity-70" />
-                <span className="text-white text-[12px] opacity-70 font-medium">Via LinkedIn</span>
+        <motion.div id="testimonial" {...fadeUp(0.2)} className="w-full bg-white border border-[#EBEBEB] rounded-2xl p-6 sm:p-8">
+          <div className="flex gap-3 items-start">
+            <span className="text-[40px] leading-none text-[#5B4CF5] opacity-30 font-serif select-none mt-[-6px]">"</span>
+            <div className="flex-1">
+              <p className="text-[14px] sm:text-[15px] text-[#444] leading-relaxed font-medium">
+                Adarsh, you have been the backbone of NeuAnchor projects. I commend you for the your skills, your patience to operate with multiple stakeholders, the way you captured our ideas and converted them to reality, the calm you maintained during multiple last minute changes... and so on... You and your entire team of Blu Parrot... 🫡
+              </p>
+              <div className="flex items-center justify-between mt-5 pt-4 border-t border-[#F0F0F0]">
+                <div className="flex items-center gap-3">
+                  <div className="w-7 h-7 rounded-full bg-[#F0EEFF] flex items-center justify-center text-[#5B4CF5] text-[10px] font-bold shrink-0">SC</div>
+                  <div>
+                    <p className="text-[13px] font-semibold text-[#111]">Shuchi Chopra</p>
+                    <p className="text-[11.5px] text-[#999]">VP Operations · Scottish High International School</p>
+                  </div>
+                </div>
+                <a
+                  href="https://www.linkedin.com/feed/update/urn:li:activity:7463306227159121924/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-[13px] text-[#BBB] hover:text-[#5B4CF5] font-semibold transition-colors"
+                >
+                  <ExternalLink size={12} />
+                  Via LinkedIn
+                </a>
               </div>
             </div>
           </div>
         </motion.div>
         </div>
+
+        {/* ── GALLERY ── */}
+        <GallerySection />
 
         {/* ── FOOTER ── */}
         <motion.footer {...fadeUp(0.2)}
