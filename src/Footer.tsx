@@ -2,20 +2,48 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 
-export default function Footer() {
-  const [name, setName]       = useState('');
-  const [message, setMessage] = useState('');
-  const [sent, setSent]       = useState(false);
+const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/adarshrawat474@gmail.com';
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function Footer() {
+  const [name, setName]         = useState('');
+  const [email, setEmail]       = useState('');
+  const [message, setMessage]   = useState('');
+  const [status, setStatus]     = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !message.trim()) return;
-    // Opens mailto with prefilled content
-    window.location.href = `mailto:adarshrawat474@gmail.com?subject=Hey Adarsh, from ${name}&body=${encodeURIComponent(message)}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
-    setName('');
-    setMessage('');
+    if (!name.trim() || !email.trim() || !message.trim()) return;
+
+    setStatus('sending');
+
+    try {
+      const res = await fetch(FORMSUBMIT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim(),
+          _subject: `Portfolio message from ${name.trim()}`,
+          _replyto: email.trim(),
+          _template: 'table',
+        }),
+      });
+
+      if (!res.ok) throw new Error('Failed to send');
+
+      setStatus('sent');
+      setName('');
+      setEmail('');
+      setMessage('');
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -47,23 +75,40 @@ export default function Footer() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             <input
               type="text"
+              name="name"
               placeholder="Your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full px-4 py-3 text-[15px] border border-[#EBEBEB] rounded-lg bg-[#FAFAFA] text-[#111] placeholder-[#CCC] focus:outline-none focus:border-[#5B4CF5] transition-colors font-medium"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
               className="w-full px-4 py-3 text-[15px] border border-[#EBEBEB] rounded-lg bg-[#FAFAFA] text-[#111] placeholder-[#CCC] focus:outline-none focus:border-[#5B4CF5] transition-colors font-medium"
             />
             <textarea
-              placeholder="Your message or suggestion..."
+              name="message"
+              placeholder="Your suggestion..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               rows={4}
+              required
               className="w-full px-4 py-3 text-[15px] border border-[#EBEBEB] rounded-lg bg-[#FAFAFA] text-[#111] placeholder-[#CCC] focus:outline-none focus:border-[#5B4CF5] transition-colors resize-none font-medium"
             />
             <button
               type="submit"
-              className="flex items-center justify-center gap-2 bg-[#5B4CF5] hover:bg-[#4a3de0] text-white text-[13.5px] font-semibold px-4 py-2.5 rounded-lg transition-colors group"
+              disabled={status === 'sending'}
+              className="flex items-center justify-center gap-2 bg-[#5B4CF5] hover:bg-[#4a3de0] disabled:opacity-60 disabled:cursor-not-allowed text-white text-[13.5px] font-semibold px-4 py-2.5 rounded-lg transition-colors group"
             >
-              {sent ? '✓ Sent!' : (
+              {status === 'sending' && 'Sending...'}
+              {status === 'sent' && '✓ Sent!'}
+              {status === 'error' && 'Something went wrong — try again'}
+              {status === 'idle' && (
                 <>
                   Send Message
                   <Send size={13} className="group-hover:translate-x-0.5 transition-transform" />
