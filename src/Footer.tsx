@@ -48,6 +48,7 @@ export default function Footer() {
 
   return (
     <motion.footer
+      id="contact"
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45 }}

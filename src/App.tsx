@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, GitFork, ExternalLink, ArrowUpRight, Download } from 'lucide-react';
 import { experience, skills, projects, stats, links } from './data';
@@ -7,6 +8,7 @@ import CustomCursor from './CustomCursor';
 import Loader from './Loader';
 import GallerySection from './GallerySection';
 import Footer from './Footer';
+import ResumeThanks from './ResumeThanks';
 import './index.css';
 
 
@@ -55,9 +57,20 @@ function Divider() {
 }
 
 export default function App() {
+  const [showResumeThanks, setShowResumeThanks] = useState(false);
+
+  const handleResumeDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Adarsh_Rawat_Resume.pdf';
+    link.click();
+    setShowResumeThanks(true);
+  };
+
   return (
     <div className="min-h-screen w-full bg-[#F9F9F9]" style={{ fontFamily: "'Nunito Sans', system-ui, sans-serif" }}>
       <Loader />
+      <ResumeThanks open={showResumeThanks} onClose={() => setShowResumeThanks(false)} />
       <CustomCursor />
       <DotNav />
       <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 py-8 lg:py-12 pb-20 space-y-12">
@@ -110,14 +123,14 @@ export default function App() {
               </div>
 
               {/* Download Resume */}
-              <a
-                href="/resume.pdf"
-                download="Adarsh_Rawat_Resume.pdf"
+              <button
+                type="button"
+                onClick={handleResumeDownload}
                 className="inline-flex items-center gap-2 mt-4 bg-[#5B4CF5] hover:bg-[#4a3de0] text-white text-[13px] font-semibold px-4 py-2 rounded-lg transition-colors group"
               >
                 <Download size={14} className="group-hover:-translate-y-0.5 transition-transform" />
                 Download Resume
-              </a>
+              </button>
 
               {/* Stats */}
               <Divider />
