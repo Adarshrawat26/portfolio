@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, GitFork, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, GitFork, ExternalLink, ArrowUpRight, Download } from 'lucide-react';
 import { experience, skills, projects, stats, links } from './data';
 import { SkillIcon } from './SkillIcon';
 import DotNav from './DotNav';
@@ -107,6 +107,16 @@ export default function App() {
                   ))}
                 </div>
               </div>
+
+              {/* Download Resume */}
+              <a
+                href="/resume.pdf"
+                download="Adarsh_Rawat_Resume.pdf"
+                className="inline-flex items-center gap-2 mt-4 bg-[#5B4CF5] hover:bg-[#4a3de0] text-white text-[13px] font-semibold px-4 py-2 rounded-lg transition-colors group"
+              >
+                <Download size={14} className="group-hover:-translate-y-0.5 transition-transform" />
+                Download Resume
+              </a>
 
               {/* Stats */}
               <Divider />
