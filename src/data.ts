@@ -120,7 +120,7 @@ export const projects = [
 ];
 
 export const stats = [
-  { num: '3+', label: 'Years in enterprise UX' },
+  { num: '1+', label: 'Years in enterprise UX' },
   { num: '10+', label: 'Products shipped' },
   { num: 'Top 3', label: 'of 1800 Dubai POC submissions' },
 ];
