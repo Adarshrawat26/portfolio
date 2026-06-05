@@ -12,8 +12,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-*, *::before, *::after {
-  cursor: none !important;
+@media (min-width: 768px) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
 }
 
 

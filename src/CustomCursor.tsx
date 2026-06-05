@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
+const MOBILE_MAX_WIDTH = 767;
+
 export default function CustomCursor() {
   const dotRef  = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
@@ -7,8 +9,17 @@ export default function CustomCursor() {
   const ring    = useRef({ x: 0, y: 0 });
   const raf     = useRef<number>(0);
   const [hovering, setHovering] = useState(false);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
+    const update = () => setEnabled(window.innerWidth > MOBILE_MAX_WIDTH);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
     const onMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
 
@@ -51,7 +62,9 @@ export default function CustomCursor() {
       window.removeEventListener('mouseout',  onLeave);
       cancelAnimationFrame(raf.current);
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) return null;
 
   return (
     <>
