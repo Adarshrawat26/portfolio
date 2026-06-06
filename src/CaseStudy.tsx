@@ -107,13 +107,6 @@ function SectionLabel({ children }: { children: string }) {
 function ArticleLayout() {
   return (
     <article className="space-y-12">
-      <div>
-        <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#999] mb-3">TL;DR</p>
-        <p className="text-[15px] sm:text-[17px] text-[#444] leading-[1.8] font-medium">
-          <Hl>One resume PDF</Hl> → extracted the data → <Hl>prompts replaced Figma</Hl> → shipped features → <Hl>live on Vercel</Hl> → bought <Hl>adarshcool.in</Hl> on GoDaddy and connected DNS. One session. <Hl>Zero templates.</Hl>
-        </p>
-      </div>
-
       <div className="space-y-4">
         <p className="text-[18px] sm:text-[19px] text-[#111] leading-[1.7] font-medium">
           This portfolio wasn&apos;t designed in Figma or coded line by line. It was <Hl>built through conversation</Hl> — using <Hl>intentional prompting</Hl> as the primary design tool.
