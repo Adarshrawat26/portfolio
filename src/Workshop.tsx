@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import CustomCursor from './CustomCursor';
-import { workshopStudy } from './workshopData';
+import { workshopStudy, workshopTagline } from './workshopData';
 
 export default function Workshop() {
   const study = workshopStudy;
@@ -32,8 +32,8 @@ export default function Workshop() {
           >
             adarsh&apos;s workshop
           </h1>
-          <p className="text-[14px] text-[#999] mt-3 font-medium max-w-md leading-relaxed">
-            Visual case studies and experiments — browse like a publication.
+          <p className="text-[14px] text-[#999] mt-3 font-medium max-w-lg leading-relaxed">
+            {workshopTagline}
           </p>
         </motion.div>
 

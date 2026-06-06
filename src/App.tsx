@@ -10,6 +10,7 @@ import Loader from './Loader';
 import GallerySection from './GallerySection';
 import Footer from './Footer';
 import ResumeThanks from './ResumeThanks';
+import NewsBar from './NewsBar';
 import './index.css';
 
 
@@ -74,6 +75,7 @@ export default function App() {
       <ResumeThanks open={showResumeThanks} onClose={() => setShowResumeThanks(false)} />
       <CustomCursor />
       <DotNav />
+      <NewsBar />
       <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 py-8 lg:py-12 pb-20 space-y-12">
 
         {/* ── HERO ── */}

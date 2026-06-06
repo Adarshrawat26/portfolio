@@ -1,3 +1,6 @@
+export const workshopTagline =
+  'I use AI to clear my head — sketch ideas, refine taste, and put things out aesthetically.';
+
 export interface WorkshopStudy {
   id: string;
   number: number;
