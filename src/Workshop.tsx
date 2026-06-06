@@ -1,11 +1,32 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Share2, Check } from 'lucide-react';
 import CustomCursor from './CustomCursor';
 import { workshopStudy, workshopTagline } from './workshopData';
 
 export default function Workshop() {
   const study = workshopStudy;
+  const [copied, setCopied] = useState(false);
+
+  const articleUrl = `${window.location.origin}/workshop/${study.id}`;
+
+  const handleShare = async () => {
+    const shareData = { title: study.title, text: study.desc, url: articleUrl };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch {
+        /* cancelled or failed — fall through to copy */
+      }
+    }
+
+    await navigator.clipboard.writeText(articleUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="min-h-screen w-full bg-[#121212] text-white" style={{ fontFamily: "'Nunito Sans', system-ui, sans-serif" }}>
@@ -77,6 +98,17 @@ export default function Workshop() {
               {study.desc}
             </p>
           </Link>
+
+          <div className="flex justify-end mt-3">
+            <button
+              type="button"
+              onClick={handleShare}
+              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#888] hover:text-white border border-[#333] hover:border-[#555] rounded-full px-3 py-1.5 transition-colors"
+            >
+              {copied ? 'Copied' : 'Share'}
+              {copied ? <Check size={12} /> : <Share2 size={12} />}
+            </button>
+          </div>
         </motion.div>
 
       </main>
