@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, GitFork, ExternalLink, ArrowUpRight, Download } from 'lucide-react';
 import { experience, skills, projects, stats, links } from './data';
@@ -133,13 +134,23 @@ export default function App() {
 
               {/* Stats */}
               <Divider />
-              <div className="flex flex-wrap gap-8 sm:gap-12">
-                {stats.map((s) => (
-                  <div key={s.num}>
-                    <p className="text-2xl sm:text-3xl font-extrabold text-[#5B4CF5] tracking-tight leading-none">{s.num}</p>
-                    <p className="text-[13px] text-[#888] mt-1.5 font-medium">{s.label}</p>
-                  </div>
-                ))}
+              <div className="flex flex-wrap items-end justify-between gap-6">
+                <div className="flex flex-wrap gap-8 sm:gap-12">
+                  {stats.map((s) => (
+                    <div key={s.num}>
+                      <p className="text-2xl sm:text-3xl font-extrabold text-[#5B4CF5] tracking-tight leading-none">{s.num}</p>
+                      <p className="text-[13px] text-[#888] mt-1.5 font-medium">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  to="/workshop"
+                  className="inline-flex items-center gap-1.5 text-[14px] text-[#555] hover:text-[#5B4CF5] transition-colors font-semibold shrink-0"
+                  style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}
+                >
+                  Adarsh&apos;s workshop
+                  <ArrowUpRight size={13} className="not-italic" />
+                </Link>
               </div>
             </div>
           </div>
