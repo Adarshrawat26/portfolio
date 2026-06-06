@@ -104,7 +104,7 @@ export default function Footer() {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="flex items-center justify-center gap-2 bg-[#5B4CF5] hover:bg-[#4a3de0] disabled:opacity-60 disabled:cursor-not-allowed text-white text-[13.5px] font-semibold px-4 py-2.5 rounded-lg transition-colors group"
+              className="flex items-center justify-center gap-2 bg-[#5B4CF5] hover:bg-[#4a3de0] disabled:opacity-60 disabled:cursor-not-allowed text-white text-[16px] font-semibold px-4 py-3 rounded-lg transition-colors group"
             >
               {status === 'sending' && 'Sending...'}
               {status === 'sent' && '✓ Sent!'}
@@ -118,7 +118,7 @@ export default function Footer() {
             </button>
           </form>
 
-          <p className="text-[11.5px] text-[#CCC] font-medium text-center">
+          <p className="text-[13px] text-[#CCC] font-medium text-center">
             Adarsh Rawat · adarshrawat474@gmail.com · Updated June 2026
           </p>
         </div>
