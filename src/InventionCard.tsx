@@ -29,7 +29,8 @@ function SitePreview({ url, hostname, previewImage }: { url: string; hostname: s
       rel="noopener noreferrer"
       className="block w-full group/preview"
     >
-      <div className="rounded-xl border border-[#E8E8E8] overflow-hidden bg-[#F7F7F7] shadow-sm">
+      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#999] mb-2">Site preview</p>
+      <div className="rounded-xl border-2 border-[#E8E8E8] overflow-hidden bg-[#F7F7F7] shadow-sm">
         <div className="flex items-center gap-2 px-3 py-2 border-b border-[#E8E8E8] bg-[#F7F7F7]">
           <div className="flex gap-1.5 shrink-0">
             <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
@@ -63,8 +64,8 @@ export default function InventionCard({ item, index }: { item: Invention; index:
       transition={{ duration: 0.4, delay: 0.14 + index * 0.04 }}
       className="border border-[#EBEBEB] rounded-xl p-5 sm:p-6 bg-white hover:border-[#5B4CF5] hover:shadow-[0_2px_12px_rgba(91,76,245,0.08)] transition-all duration-150"
     >
-      <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
-        <div className="flex flex-col min-w-0 flex-1 order-2 md:order-1">
+      <div className="flex flex-col sm:flex-row sm:items-start gap-6 sm:gap-8">
+        <div className="flex flex-col min-w-0 flex-1 sm:order-1">
           <div className="flex flex-wrap items-center gap-2 mb-2">
             <span className="text-[12px] font-bold text-[#CCC]">{String(index + 1).padStart(2, '0')}</span>
             <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#5B4CF5] bg-[#F0EEFF] border border-[#D4CEFF] rounded-full px-2 py-0.5">
@@ -101,7 +102,7 @@ export default function InventionCard({ item, index }: { item: Invention; index:
         </div>
 
         {item.previewImage && (
-          <div className="w-full md:w-[min(100%,380px)] md:shrink-0 order-1 md:order-2">
+          <div className="w-full sm:w-[min(100%,420px)] sm:shrink-0 sm:order-2">
             <SitePreview url={item.url} hostname={hostname} previewImage={item.previewImage} />
           </div>
         )}

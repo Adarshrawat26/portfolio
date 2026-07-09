@@ -1,3 +1,5 @@
+import resumeRoastPreview from './assets/resume-roast-preview.png';
+
 export const experience = [
   {
     role: 'Product Designer & Full Stack Developer',
@@ -73,7 +75,7 @@ export const inventions = [
       { name: 'Vercel', icon: 'netlify' },
     ],
     url: 'https://roastingmyresume.vercel.app',
-    previewImage: '/resume-roast-preview.png',
+    previewImage: resumeRoastPreview,
     status: 'Live',
   },
 ];
