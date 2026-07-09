@@ -53,6 +53,31 @@ export const skills = [
   },
 ];
 
+export const inventions = [
+  {
+    name: 'Resume Roast',
+    tagline: 'AI resume critique that turns a PDF into a savage-but-useful Cooked Score, specific roasts, and actionable fixes. No login required.',
+    desc: 'Upload a PDF, get a streamed Cooked Score and specific roasts, then a Reality Check against an optional job description.',
+    highlights: [
+      'Streaming UX — score + roasts appear before full JSON finishes',
+      'Client-side PDF parsing — resume text stays in the browser',
+      'Soft paywall + waitlist without auth (3 free roasts/day)',
+      'Lead capture mid-roast + monetization CTA analytics',
+      'Groq SSE streaming with dual-key failover on rate limits',
+    ],
+    tags: [
+      { name: 'Next.js', icon: 'nextjs' },
+      { name: 'TypeScript', icon: 'typescript' },
+      { name: 'AI/LLM', icon: null },
+      { name: 'Postgres', icon: null },
+      { name: 'Vercel', icon: 'netlify' },
+    ],
+    url: 'https://roastingmyresume.vercel.app',
+    previewImage: '/resume-roast-preview.png',
+    status: 'Live',
+  },
+];
+
 export const projects = [
   {
     name: 'Enterprise HCMS Platform',

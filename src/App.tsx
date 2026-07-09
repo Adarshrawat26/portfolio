@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, GitFork, ExternalLink, ArrowUpRight, Download } from 'lucide-react';
-import { experience, skills, projects, stats, links } from './data';
+import { experience, skills, inventions, projects, stats, links } from './data';
 import { SkillIcon } from './SkillIcon';
 import DotNav from './DotNav';
 import CustomCursor from './CustomCursor';
@@ -11,6 +11,7 @@ import GallerySection from './GallerySection';
 import Footer from './Footer';
 import ResumeThanks from './ResumeThanks';
 import NewsBar from './NewsBar';
+import InventionCard from './InventionCard';
 import './index.css';
 
 
@@ -202,6 +203,26 @@ export default function App() {
             </div>
           </motion.div>
         </div>
+        </div>
+
+        {/* ── INVENTIONS ── */}
+        <div id="inventions">
+          <SectionTitle>My Inventions</SectionTitle>
+          <motion.div {...fadeUp(0.12)} className="w-full bg-white border border-[#EBEBEB] rounded-2xl p-6 sm:p-7">
+            <div className="flex items-center justify-between mb-5">
+              <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#999]">My Inventions</p>
+              <p className="text-[12.5px] text-[#BBB] font-medium hidden sm:flex items-center gap-1.5">
+                <ArrowUpRight size={13} className="text-[#5B4CF5]" />
+                Side products I shipped solo
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4">
+              {inventions.map((item, i) => (
+                <InventionCard key={item.name} item={item} index={i} />
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         {/* ── PROJECTS ── */}
