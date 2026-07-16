@@ -41,16 +41,16 @@ export default function Workshop() {
         >
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 text-[13px] text-ink-2 hover:text-ink font-medium transition-colors mb-8"
+            className="inline-flex items-center gap-1.5 text-xs text-ink-2 hover:text-ink font-medium transition-colors mb-8"
           >
             <ArrowLeft size={14} />
             Back to portfolio
           </Link>
 
-          <h1 className="font-display font-semibold text-[clamp(1.75rem,4vw+1rem,2.75rem)] leading-[1.05] text-ink tracking-[-0.02em]">
+          <h1 className="font-display font-bold text-display-s leading-[1.05] text-ink tracking-[-0.02em]">
             adarsh&apos;s workshop
           </h1>
-          <p className="text-[14px] text-ink-2 mt-3 font-medium max-w-lg leading-relaxed">
+          <p className="text-sm text-ink-2 mt-3 font-medium max-w-lg leading-relaxed">
             {workshopTagline}
           </p>
         </motion.div>
@@ -64,7 +64,7 @@ export default function Workshop() {
           <Link to={`/workshop/${study.id}`} className="group block cursor-pointer">
             <div className="flex items-center justify-between mb-3">
               <span className="mono-label !mb-0">#{study.number}</span>
-              <span className="text-[11px] font-medium text-ink-3 uppercase tracking-[0.12em]">
+              <span className="text-3xs font-medium text-ink-3 uppercase tracking-[0.12em]">
                 {study.date}
               </span>
             </div>
@@ -77,10 +77,10 @@ export default function Workshop() {
               />
             </div>
 
-            <h2 className="font-display font-semibold text-[20px] sm:text-[22px] text-ink leading-[1.15] group-hover:text-[var(--color-accent-2)] transition-colors">
+            <h2 className="font-display font-bold text-lg sm:text-xl text-ink leading-[1.15] group-hover:text-[var(--color-accent-2)] transition-colors">
               {study.title}
             </h2>
-            <p className="text-[13px] text-ink-2 mt-2 leading-relaxed font-medium">
+            <p className="text-xs text-ink-2 mt-2 leading-relaxed font-normal">
               {study.desc}
             </p>
           </Link>

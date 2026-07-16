@@ -50,7 +50,7 @@ export default function WorkshopArticle() {
         >
           <Link
             to="/workshop"
-            className="inline-flex items-center gap-1.5 text-[13px] text-ink-2 hover:text-ink font-medium transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-xs text-ink-2 hover:text-ink font-medium transition-colors mb-10"
           >
             <ArrowLeft size={14} />
             Back to workshop
@@ -58,16 +58,16 @@ export default function WorkshopArticle() {
 
           <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
             <span className="mono-label !mb-0">#{study.number}</span>
-            <span className="text-[11px] font-medium text-ink-3 uppercase tracking-[0.12em]">
+            <span className="text-3xs font-medium text-ink-3 uppercase tracking-[0.12em]">
               {study.date} · {study.readTime}
             </span>
           </div>
 
-          <h1 className="font-display font-semibold text-[clamp(1.75rem,4vw+1rem,2.75rem)] text-ink leading-[1.1] tracking-[-0.02em] mb-6">
+          <h1 className="font-display font-bold text-display-s text-ink leading-[1.1] tracking-[-0.02em] mb-6">
             {study.title}
           </h1>
 
-          <p className="text-[16px] text-ink-2 leading-[1.7] font-medium">
+          <p className="text-base text-ink-2 leading-[1.7] font-normal">
             {study.desc}
           </p>
         </motion.div>
@@ -87,7 +87,7 @@ export default function WorkshopArticle() {
           <Link to="/workshop" className="btn btn--outline btn--sm">
             ← All stories
           </Link>
-          <Link to="/" className="text-[13px] font-medium text-ink-2 hover:text-ink transition-colors">
+          <Link to="/" className="text-xs font-medium text-ink-2 hover:text-ink transition-colors">
             View live portfolio →
           </Link>
         </div>

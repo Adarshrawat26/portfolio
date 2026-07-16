@@ -19,10 +19,10 @@ export default function GallerySection() {
         style={{ background: 'color-mix(in oklch, var(--color-mint) 22%, var(--color-paper))' }}
       >
         <div className="flex items-baseline justify-between mb-6 flex-wrap gap-2">
-          <h2 className="font-display font-semibold text-[22px] sm:text-[26px] text-ink">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-ink">
             Life, before corporate
           </h2>
-          <p className="text-[12.5px] text-ink-2 font-medium">FC KIET · inter-college champions</p>
+          <p className="text-2xs text-ink-2 font-medium">FC KIET · inter-college champions</p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -45,7 +45,7 @@ export default function GallerySection() {
           ))}
         </div>
 
-        <p className="text-[11.5px] text-ink-3 font-medium mt-4 text-center">
+        <p className="text-3xs text-ink-3 font-medium mt-4 text-center">
           Inter-college football tournament — KIET University, Ghaziabad
         </p>
       </motion.div>

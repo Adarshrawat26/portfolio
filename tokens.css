@@ -31,16 +31,20 @@
   --font-body:    "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, monospace;
 
-  --text-xs:   0.75rem;
-  --text-sm:   0.875rem;
-  --text-base: 1rem;
-  --text-md:   1.125rem;
-  --text-lg:   1.375rem;
-  --text-xl:   1.75rem;
-  --text-2xl:  2.25rem;
-  --text-3xl:  2.75rem;
+  /* one scale, used everywhere — no arbitrary px in components */
+  --text-3xs:  0.6875rem;  /* 11px — eyebrow / mono-label / micro meta */
+  --text-2xs:  0.75rem;    /* 12px — small meta, secondary links */
+  --text-xs:   0.8125rem;  /* 13px — captions, chips, tags */
+  --text-sm:   0.875rem;   /* 14px — default UI/description text */
+  --text-base: 1rem;       /* 16px — card titles, prose body */
+  --text-md:   1.125rem;   /* 18px — subheadings, taglines */
+  --text-lg:   1.25rem;    /* 20px — prominent subheads */
+  --text-xl:   1.5rem;     /* 24px — small stat numerals */
+  --text-2xl:  1.75rem;    /* 28px — section headings (h2) */
+  --text-3xl:  2.25rem;    /* 36px — large stat numerals */
+  --text-4xl:  2.75rem;    /* 44px — largest stat numerals */
   --text-display: clamp(2.5rem, 4vw + 1rem, 4.5rem);
-  --text-display-s: clamp(2rem, 3vw + 1rem, 3rem);
+  --text-display-s: clamp(1.875rem, 4vw + 1rem, 3rem); /* page/hero h1 */
 
   /* ---- space (4pt scale) ---- */
   --space-3xs: 0.125rem;

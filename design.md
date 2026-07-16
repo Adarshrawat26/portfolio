@@ -39,11 +39,20 @@ reacting character mark. See tokens below for exact values.
 - `--color-focus`      oklch(55% 0.19 235)   — cyan focus ring
 
 ## Typography
-- Display: Plus Jakarta Sans, weight 600, tracking -0.025em
-- Body: Plus Jakarta Sans, weight 400 (500 for inline emphasis)
-- Mono/outlier: JetBrains Mono — labels, tags, stat numerals only (≤ 2 slots)
+- Display/headings: Plus Jakarta Sans, weight **700**, tracking -0.02em to -0.025em.
+  (Was 600 — bumped to give headings a real ≥300-unit weight gap over body's 400,
+  per the type-contrast rule. 600-next-to-500 read as a default, not a decision.)
+- Body/prose: Plus Jakarta Sans, weight 400. UI meta/labels/tags: weight 500.
+  Three steps total — 400 body / 500 meta / 700 heading — no other weights.
+- Mono/outlier: JetBrains Mono — eyebrows, tags, stat numerals only (≤ 2 slots).
 - No serif anywhere. No italic headings (emphasis = weight or accent colour).
-- Scale anchor: `--text-display: clamp(2.5rem, 4vw + 1rem, 4.5rem)`
+- One scale, twelve named steps, used everywhere via Tailwind's `text-*`
+  utilities (mapped to the CSS vars in `tailwind.config.js` — never
+  `text-[Npx]` arbitrary values in components):
+  `text-3xs`(11) `text-2xs`(12) `text-xs`(13) `text-sm`(14) `text-base`(16)
+  `text-md`(18) `text-lg`(20) `text-xl`(24) `text-2xl`(28) `text-3xl`(36)
+  `text-4xl`(44) `text-display-s`(clamp 30–48, page/hero h1)
+  `text-display`(clamp 40–72, reserved for a future full-bleed hero).
 
 ## Spacing
 4-point named scale (`--space-3xs` … `--space-4xl`) in tokens.css. Pages use

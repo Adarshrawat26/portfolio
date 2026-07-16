@@ -52,10 +52,10 @@ export default function ResumeThanks({ open, onClose }: ResumeThanksProps) {
             </div>
 
             <div className="px-5 py-4 text-center">
-              <p className="text-[20px] font-semibold text-ink leading-snug font-display">
+              <p className="text-lg font-bold text-ink leading-snug font-display">
                 Cheers for grabbing my resume!
               </p>
-              <p className="text-[14.5px] text-ink-2 mt-2 font-medium leading-relaxed">
+              <p className="text-sm text-ink-2 mt-2 font-normal leading-relaxed">
                 Appreciate you taking the time — let&apos;s connect soon.
               </p>
               <button

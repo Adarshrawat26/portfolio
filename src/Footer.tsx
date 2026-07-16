@@ -56,7 +56,7 @@ export default function Footer() {
     >
       {/* Ft5 Statement — one closing line, then the form as the page's character moment */}
       <div className="pb-8">
-        <p className="font-display font-semibold text-[clamp(1.75rem,5vw,3rem)] leading-[1.05] text-ink tracking-[-0.02em] max-w-[22ch]">
+        <p className="font-display font-bold text-display-s leading-[1.05] text-ink tracking-[-0.02em] max-w-[22ch]">
           Suggestions, collabs, or just a hi — <span className="hl hl--cyan">all welcome</span>.
         </p>
       </div>
@@ -82,7 +82,7 @@ export default function Footer() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="w-full px-4 py-3 text-[15px] rounded-[var(--radius-input)] bg-paper border border-rule text-ink placeholder-ink-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-1 transition-colors font-medium"
+                className="w-full px-4 py-3 text-base rounded-[var(--radius-input)] bg-paper border border-rule text-ink placeholder-ink-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-1 transition-colors font-normal"
               />
               <input
                 type="email"
@@ -91,7 +91,7 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 text-[15px] rounded-[var(--radius-input)] bg-paper border border-rule text-ink placeholder-ink-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-1 transition-colors font-medium"
+                className="w-full px-4 py-3 text-base rounded-[var(--radius-input)] bg-paper border border-rule text-ink placeholder-ink-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-1 transition-colors font-normal"
               />
               <textarea
                 name="message"
@@ -100,7 +100,7 @@ export default function Footer() {
                 onChange={(e) => setMessage(e.target.value)}
                 rows={3}
                 required
-                className="w-full px-4 py-3 text-[15px] rounded-[var(--radius-input)] bg-paper border border-rule text-ink placeholder-ink-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-1 transition-colors resize-none font-medium"
+                className="w-full px-4 py-3 text-base rounded-[var(--radius-input)] bg-paper border border-rule text-ink placeholder-ink-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-1 transition-colors resize-none font-normal"
               />
               <button
                 type="submit"
@@ -118,8 +118,8 @@ export default function Footer() {
       </div>
 
       <div className="flex items-center justify-between mt-6 pt-4 border-t border-rule">
-        <span className="font-display font-semibold text-ink text-[15px]">Adarsh Rawat</span>
-        <span className="text-[12.5px] text-ink-3 font-medium">adarshrawat474@gmail.com · Updated Jul 2026</span>
+        <span className="font-display font-bold text-ink text-base">Adarsh Rawat</span>
+        <span className="text-2xs text-ink-3 font-medium">adarshrawat474@gmail.com · Updated Jul 2026</span>
       </div>
     </motion.footer>
   );

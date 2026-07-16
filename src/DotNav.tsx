@@ -122,7 +122,7 @@ export default function DotNav() {
   return (
     <nav className="nav-rail fixed left-0 top-0 bottom-0 z-50 w-14 flex flex-col items-center justify-between py-6">
       <p
-        className="text-[11px] font-semibold tracking-[0.18em] text-ink-2 select-none"
+        className="text-3xs font-semibold tracking-[0.18em] text-ink-2 select-none"
         style={{ writingMode: 'vertical-rl', fontFamily: 'var(--font-mono)' }}
       >
         ADARSH·RAWAT
@@ -149,7 +149,7 @@ export default function DotNav() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute left-9 whitespace-nowrap bg-ink text-paper text-[11.5px] font-semibold px-2.5 py-1 rounded-md"
+                      className="absolute left-9 whitespace-nowrap bg-ink text-paper text-3xs font-semibold px-2.5 py-1 rounded-md"
                     >
                       {label}
                     </motion.span>

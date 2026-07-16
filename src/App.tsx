@@ -47,7 +47,7 @@ function TileLabel({ children }: { children: string }) {
 
 function Chip({ children, accent, icon }: { children: string; accent?: boolean; icon?: string | null }) {
   return (
-    <span className={`inline-flex items-center gap-1.5 text-[13px] px-3 py-1 rounded-md border font-medium
+    <span className={`inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-md border font-medium
       ${accent
         ? 'bg-[var(--color-accent-2-tint)] text-[var(--color-accent-2-deep)] border-[var(--color-accent-2)]'
         : 'bg-paper-2 text-ink-2 border-rule'
@@ -96,13 +96,13 @@ export default function App() {
           <div className="min-w-0 w-full">
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
               <div>
-                <h1 className="font-display font-semibold text-[clamp(1.9rem,4vw+1rem,3rem)] leading-[1.05] text-ink tracking-[-0.02em]">
+                <h1 className="font-display font-bold text-display-s leading-[1.05] text-ink tracking-[-0.02em]">
                   Adarsh Kumar Rawat <span className="char-mark align-middle ml-1" aria-hidden="true" />
                 </h1>
-                <p className="text-[16px] sm:text-[17px] text-ink-2 mt-2.5 font-medium">
+                <p className="text-base sm:text-md text-ink-2 mt-2.5 font-medium">
                   Enterprise Product Designer &amp; Full Stack Developer
                 </p>
-                <p className="text-[13px] text-ink-3 mt-1 font-medium">
+                <p className="text-xs text-ink-3 mt-1 font-medium">
                   Gurugram, India · B.Tech IT, KIET 2026
                 </p>
               </div>
@@ -114,7 +114,7 @@ export default function App() {
                   { icon: <GitFork size={13} />, label: 'GitHub', href: links.github },
                 ].map(({ icon, label, href }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-[13.5px] text-ink-2 hover:text-[var(--color-accent-2)] transition-colors font-medium">
+                    className="flex items-center gap-1.5 text-xs text-ink-2 hover:text-[var(--color-accent-2)] transition-colors font-medium">
                     {icon} {label}
                   </a>
                 ))}
@@ -142,8 +142,8 @@ export default function App() {
             <div className="flex flex-wrap items-center gap-8 sm:gap-14">
               {stats.map((s) => (
                 <div key={s.num}>
-                  <p className="font-display text-2xl sm:text-3xl font-semibold text-ink tracking-tight leading-none tabular-nums">{s.num}</p>
-                  <p className="text-[13px] text-ink-2 mt-1.5 font-medium">{s.label}</p>
+                  <p className="font-display text-3xl sm:text-4xl font-bold text-ink tracking-tight leading-none tabular-nums">{s.num}</p>
+                  <p className="text-xs text-ink-2 mt-1.5 font-medium">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -158,13 +158,13 @@ export default function App() {
                 <div key={e.company} className={i !== experience.length - 1 ? 'pb-5 border-b border-rule' : ''}>
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
                     <div>
-                      <p className="text-[16px] font-semibold text-ink">{e.role}</p>
-                      <p className="text-[14px] font-medium text-[var(--color-accent-2-deep)] mt-0.5">{e.company}</p>
-                      <p className="text-[13px] text-ink-3 mt-0.5">{e.location}</p>
+                      <p className="text-base font-bold text-ink">{e.role}</p>
+                      <p className="text-sm font-medium text-[var(--color-accent-2-deep)] mt-0.5">{e.company}</p>
+                      <p className="text-xs text-ink-3 mt-0.5">{e.location}</p>
                     </div>
-                    <span className="text-[12.5px] text-ink-3 shrink-0 font-medium">{e.period}</span>
+                    <span className="text-2xs text-ink-3 shrink-0 font-medium">{e.period}</span>
                   </div>
-                  <p className="text-[14px] text-ink-2 leading-relaxed mt-2.5">{e.desc}</p>
+                  <p className="text-sm text-ink-2 leading-relaxed mt-2.5">{e.desc}</p>
                 </div>
               ))}
             </div>
@@ -178,7 +178,7 @@ export default function App() {
             <div className="space-y-4">
               {skills.map((g) => (
                 <div key={g.label}>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--color-accent-2-deep)] mb-2">{g.label}</p>
+                  <p className="text-3xs font-semibold uppercase tracking-[0.1em] text-[var(--color-accent-2-deep)] mb-2">{g.label}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {g.items.map((item) => (
                       <Chip key={item.name} accent={g.highlight.includes(item.name)} icon={item.icon}>
@@ -195,21 +195,21 @@ export default function App() {
           {/* Testimonial */}
           <div id="testimonial" className="sm:col-span-2 lg:col-span-2">
           <Tile span="h-full" tint="plain" className="reveal" style={{ '--i': 3 } as React.CSSProperties}>
-            <p className="text-[15px] text-ink-2 leading-relaxed font-medium">
+            <p className="text-base text-ink-2 leading-relaxed font-normal">
               &ldquo;Adarsh, you have been the backbone of NeuAnchor projects. I commend you for the your skills, your patience to operate with multiple stakeholders, the way you captured our ideas and converted them to reality, the calm you maintained during multiple last minute changes… and so on… You and your entire team of Blu Parrot.&rdquo;
             </p>
             <div className="flex items-center justify-between mt-5 pt-4 border-t border-rule">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[var(--color-accent-2-tint)] flex items-center justify-center text-[var(--color-accent-2-deep)] text-[11px] font-semibold shrink-0">SC</div>
+                <div className="w-8 h-8 rounded-full bg-[var(--color-accent-2-tint)] flex items-center justify-center text-[var(--color-accent-2-deep)] text-3xs font-semibold shrink-0">SC</div>
                 <div>
-                  <p className="text-[13px] font-semibold text-ink">Shuchi Chopra</p>
-                  <p className="text-[11.5px] text-ink-3">VP Operations · Scottish High International School</p>
+                  <p className="text-xs font-bold text-ink">Shuchi Chopra</p>
+                  <p className="text-3xs text-ink-3">VP Operations · Scottish High International School</p>
                 </div>
               </div>
               <a
                 href="https://www.linkedin.com/feed/update/urn:li:activity:7463306227159121924/"
                 target="_blank" rel="noopener noreferrer"
-                className="text-[12px] text-ink-3 hover:text-[var(--color-accent-2)] font-medium transition-colors shrink-0"
+                className="text-2xs text-ink-3 hover:text-[var(--color-accent-2)] font-medium transition-colors shrink-0"
               >
                 Via LinkedIn
               </a>
@@ -223,12 +223,12 @@ export default function App() {
             <TileLabel>Education</TileLabel>
             <div className="space-y-4">
               <div>
-                <p className="text-[14.5px] font-semibold text-ink leading-snug">B.Tech — Information Technology</p>
-                <p className="text-[13px] font-medium text-[var(--color-accent-2-deep)] mt-0.5">KIET Group of Institutions · Ghaziabad · 2022–26</p>
+                <p className="text-sm font-bold text-ink leading-snug">B.Tech — Information Technology</p>
+                <p className="text-xs font-medium text-[var(--color-accent-2-deep)] mt-0.5">KIET Group of Institutions · Ghaziabad · 2022–26</p>
               </div>
               <div>
-                <p className="text-[14.5px] font-semibold text-ink leading-snug">ICSE — Class XII</p>
-                <p className="text-[13px] font-medium text-[var(--color-accent-2-deep)] mt-0.5">City Montessori School · Lucknow · 2022</p>
+                <p className="text-sm font-bold text-ink leading-snug">ICSE — Class XII</p>
+                <p className="text-xs font-medium text-[var(--color-accent-2-deep)] mt-0.5">City Montessori School · Lucknow · 2022</p>
               </div>
             </div>
           </Tile>
@@ -238,8 +238,8 @@ export default function App() {
         {/* ── INVENTIONS — full-width feature ── */}
         <div id="inventions">
           <div className="flex items-baseline justify-between mb-4">
-            <h2 className="font-display font-semibold text-[22px] text-ink">My inventions</h2>
-            <p className="text-[13px] text-ink-3 font-medium hidden sm:block">Side products I shipped solo</p>
+            <h2 className="font-display font-bold text-2xl text-ink">My inventions</h2>
+            <p className="text-xs text-ink-3 font-medium hidden sm:block">Side products I shipped solo</p>
           </div>
           <div className="grid grid-cols-1 gap-4">
             {inventions.map((item, i) => (
@@ -251,8 +251,8 @@ export default function App() {
         {/* ── PROJECTS — F6 product card grid ── */}
         <div id="projects">
           <div className="flex items-baseline justify-between mb-4">
-            <h2 className="font-display font-semibold text-[22px] text-ink">Selected projects</h2>
-            <p className="text-[13px] text-ink-3 font-medium hidden sm:block">Click a card to open the live project</p>
+            <h2 className="font-display font-bold text-2xl text-ink">Selected projects</h2>
+            <p className="text-xs text-ink-3 font-medium hidden sm:block">Click a card to open the live project</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -276,8 +276,8 @@ export default function App() {
                       <span className="mono-label !mb-0">{String(i + 1).padStart(2, '0')}</span>
                       {p.url && <ArrowUpRight size={15} className="text-ink-3 group-hover:text-[var(--color-accent-2)] transition-colors" />}
                     </div>
-                    <p className="text-[16px] font-semibold text-ink leading-snug mb-2">{p.name}</p>
-                    <p className="text-[14px] text-ink-2 leading-relaxed mb-3 flex-1">{p.desc}</p>
+                    <p className="text-base font-bold text-ink leading-snug mb-2">{p.name}</p>
+                    <p className="text-sm text-ink-2 leading-relaxed mb-3 flex-1">{p.desc}</p>
                     <div className="flex flex-wrap gap-1.5 mt-auto">
                       {p.tags.map((t) => <Chip key={t.name} icon={t.icon}>{t.name}</Chip>)}
                     </div>

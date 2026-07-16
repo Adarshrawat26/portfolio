@@ -8,9 +8,9 @@ export default function NewsBar() {
       <div className="max-w-[var(--page-max)] mx-auto px-4 sm:px-6 lg:pl-20 lg:pr-10 xl:pr-16">
         <Link
           to="/workshop"
-          className="group flex items-center gap-2.5 sm:gap-3 py-2 min-h-[36px] text-[12px] sm:text-[13px] font-medium transition-colors"
+          className="group flex items-center gap-2.5 sm:gap-3 py-2 min-h-[36px] text-2xs sm:text-xs font-medium transition-colors"
         >
-          <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent-3-deep)] shrink-0">
+          <span className="text-3xs font-semibold uppercase tracking-[0.14em] text-[var(--color-accent-3-deep)] shrink-0">
             New
           </span>
           <span className="text-ink-3 shrink-0 hidden sm:inline">·</span>

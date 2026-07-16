@@ -32,7 +32,7 @@ export default function Loader() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.4 }}
-            className="mt-5 text-[13px] font-semibold text-ink-3 tracking-widest uppercase font-display"
+            className="mt-5 text-xs font-semibold text-ink-3 tracking-widest uppercase font-display"
           >
             Adarsh Kumar Rawat
           </motion.p>

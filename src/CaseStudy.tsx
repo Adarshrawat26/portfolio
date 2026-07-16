@@ -84,8 +84,8 @@ const learnings: { title: string; desc: string; descHl: ReactNode }[] = [
 
 const stack = [
   { icon: <SiReact size={18} color="#61DAFB" />, name: 'React + TypeScript' },
-  { icon: <span className="text-[14px]">🌀</span>, name: 'Tailwind CSS' },
-  { icon: <span className="text-[14px]">✦</span>, name: 'Framer Motion' },
+  { icon: <span className="text-sm">🌀</span>, name: 'Tailwind CSS' },
+  { icon: <span className="text-sm">✦</span>, name: 'Framer Motion' },
   { icon: <img src="/claude.svg" width={18} height={18} alt="" style={{ objectFit: 'contain' }} />, name: 'Claude Code' },
   { icon: <img src="/cursor.svg" width={18} height={18} alt="" style={{ objectFit: 'contain', borderRadius: 3 }} />, name: 'Cursor' },
   { icon: <SiNetlify size={18} color="#00C7B7" />, name: 'Vercel' },
@@ -99,10 +99,10 @@ function ArticleLayout() {
   return (
     <article className="space-y-12">
       <div className="space-y-4">
-        <p className="text-[18px] sm:text-[19px] text-ink leading-[1.7] font-medium">
+        <p className="text-md sm:text-lg text-ink leading-[1.7] font-normal">
           This portfolio wasn&apos;t designed in Figma or coded line by line. It was <Hl>built through conversation</Hl> — using <Hl>intentional prompting</Hl> as the primary design tool.
         </p>
-        <p className="text-[16px] text-ink-2 leading-[1.8] font-medium">
+        <p className="text-base text-ink-2 leading-[1.8] font-normal">
           The hardest part was writing the <Hl>right prompt</Hl>, not the code.
         </p>
       </div>
@@ -120,8 +120,8 @@ function ArticleLayout() {
               className={i !== steps.length - 1 ? 'pb-8 border-b border-rule' : ''}
             >
               <p className="mono-label !mb-2">{s.num}</p>
-              <h3 className="text-[18px] sm:text-[19px] font-semibold text-ink mb-2 font-display">{s.title}</h3>
-              <p className="text-[15px] sm:text-[16px] text-ink-2 leading-[1.8] font-medium">{s.descHl ?? s.desc}</p>
+              <h3 className="text-md sm:text-lg font-bold text-ink mb-2 font-display">{s.title}</h3>
+              <p className="text-sm sm:text-base text-ink-2 leading-[1.8] font-normal">{s.descHl ?? s.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -129,7 +129,7 @@ function ArticleLayout() {
 
       <div>
         <SectionLabel>What got shipped</SectionLabel>
-        <p className="text-[15px] text-ink-2 leading-[1.8] font-medium mt-4">
+        <p className="text-sm text-ink-2 leading-[1.8] font-medium mt-4">
           {shipped.map((item, i) => (
             <span key={item}>
               {i > 0 && ' · '}
@@ -144,8 +144,8 @@ function ArticleLayout() {
         <div className="space-y-6 mt-4">
           {learnings.map((l, i) => (
             <div key={i}>
-              <p className="text-[15px] font-semibold text-ink mb-1"><Hl>{l.title}</Hl></p>
-              <p className="text-[15px] text-ink-2 leading-[1.75] font-medium">{l.descHl}</p>
+              <p className="text-sm font-bold text-ink mb-1"><Hl>{l.title}</Hl></p>
+              <p className="text-sm text-ink-2 leading-[1.75] font-normal">{l.descHl}</p>
             </div>
           ))}
         </div>
@@ -153,16 +153,16 @@ function ArticleLayout() {
 
       <div>
         <SectionLabel>Stack used</SectionLabel>
-        <p className="text-[15px] text-ink-2 leading-[1.8] font-medium mt-4">
+        <p className="text-sm text-ink-2 leading-[1.8] font-medium mt-4">
           {articleStack.join(' · ')}
         </p>
       </div>
 
       <div className="pt-4 border-t border-rule">
-        <p className="text-[16px] text-ink-2 leading-[1.8] font-medium">
+        <p className="text-base text-ink-2 leading-[1.8] font-normal">
           If you&apos;re building your own portfolio — start with what you already have. A <Hl>resume</Hl>, a <Hl>point of view</Hl>, and a few <Hl>good prompts</Hl> go a long way.
         </p>
-        <p className="text-[14px] text-ink-3 mt-4 font-semibold">— Adarsh</p>
+        <p className="text-sm text-ink-3 mt-4 font-semibold">— Adarsh</p>
       </div>
     </article>
   );
@@ -176,7 +176,7 @@ function PortfolioLayout() {
       transition={{ duration: 0.45 }}
       className="card p-6 sm:p-8 space-y-10"
     >
-      <p className="text-[17px] sm:text-[19px] text-ink font-medium leading-relaxed">
+      <p className="text-md sm:text-lg text-ink font-normal leading-relaxed">
         This portfolio wasn&apos;t designed in Figma or coded line by line.
         It was <Hl>built through conversation</Hl> — using Claude Code, Cursor, and intentional prompting as the primary design tools.
       </p>
@@ -191,16 +191,16 @@ function PortfolioLayout() {
             className={`flex gap-5 py-6 ${i !== steps.length - 1 ? 'border-b border-rule' : ''}`}
           >
             <div className="shrink-0 w-10 h-10 rounded-[var(--radius-input)] flex items-center justify-center border border-rule bg-paper-2">
-              <span className="text-[11px] font-semibold text-ink-3">{s.num}</span>
+              <span className="text-3xs font-semibold text-ink-3">{s.num}</span>
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between gap-4 flex-wrap">
-                <p className="text-[16px] font-semibold text-ink font-display">{s.title}</p>
-                <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full border border-rule bg-paper-2 text-ink-2 shrink-0">
+                <p className="text-base font-bold text-ink font-display">{s.title}</p>
+                <span className="text-3xs font-semibold px-2.5 py-1 rounded-full border border-rule bg-paper-2 text-ink-2 shrink-0">
                   {s.tool}
                 </span>
               </div>
-              <p className="text-[14px] text-ink-2 leading-relaxed mt-2">{s.desc}</p>
+              <p className="text-sm text-ink-2 leading-relaxed mt-2">{s.desc}</p>
             </div>
           </motion.div>
         ))}
@@ -211,8 +211,8 @@ function PortfolioLayout() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {learnings.map((l, i) => (
             <div key={i} className="space-y-1.5">
-              <p className="text-[14px] font-semibold text-ink">{l.title}</p>
-              <p className="text-[13px] text-ink-2 leading-relaxed">{l.desc}</p>
+              <p className="text-sm font-bold text-ink">{l.title}</p>
+              <p className="text-xs text-ink-2 leading-relaxed">{l.desc}</p>
             </div>
           ))}
         </div>
@@ -224,7 +224,7 @@ function PortfolioLayout() {
           {stack.map((s) => (
             <div key={s.name} className="flex items-center gap-2 border border-rule rounded-[var(--radius-input)] px-3 py-2 bg-paper-2">
               {s.icon}
-              <span className="text-[13px] font-medium text-ink-2">{s.name}</span>
+              <span className="text-xs font-medium text-ink-2">{s.name}</span>
             </div>
           ))}
         </div>
@@ -238,10 +238,10 @@ export default function CaseStudy({ embedded = false }: { embedded?: boolean }) 
     <div id="casestudy">
       {!embedded && (
         <div className="text-center mb-5">
-          <h2 className="font-display font-semibold text-[28px] sm:text-[34px] text-ink leading-none tracking-tight">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-ink leading-none tracking-tight">
             How I built this
           </h2>
-          <p className="text-[13px] text-ink-3 mt-2 font-medium">A UX case study on building with AI</p>
+          <p className="text-xs text-ink-3 mt-2 font-medium">A UX case study on building with AI</p>
         </div>
       )}
       {embedded ? <ArticleLayout /> : <PortfolioLayout />}
