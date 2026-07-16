@@ -29,58 +29,47 @@ export default function Workshop() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#121212] text-white" style={{ fontFamily: "'Nunito Sans', system-ui, sans-serif" }}>
+    <div className="min-h-screen w-full bg-paper font-body">
       <CustomCursor />
-      <main className="w-full max-w-[1180px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 pb-24">
+      <main className="w-full max-w-[720px] mx-auto px-4 sm:px-6 py-8 lg:py-14 pb-24">
 
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="mb-10"
         >
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 text-[13px] text-[#888] hover:text-white font-semibold transition-colors mb-8"
+            className="inline-flex items-center gap-1.5 text-[13px] text-ink-2 hover:text-ink font-medium transition-colors mb-8"
           >
             <ArrowLeft size={14} />
             Back to portfolio
           </Link>
 
-          <h1
-            className="text-[32px] sm:text-[40px] lg:text-[48px] text-white leading-[1.05] lowercase"
-            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, letterSpacing: '-0.02em' }}
-          >
+          <h1 className="font-display font-semibold text-[clamp(1.75rem,4vw+1rem,2.75rem)] leading-[1.05] text-ink tracking-[-0.02em]">
             adarsh&apos;s workshop
           </h1>
-          <p className="text-[14px] text-[#999] mt-3 font-medium max-w-lg leading-relaxed">
+          <p className="text-[14px] text-ink-2 mt-3 font-medium max-w-lg leading-relaxed">
             {workshopTagline}
           </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.4, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-sm"
         >
-          <Link
-            to={`/workshop/${study.id}`}
-            className="group block cursor-pointer"
-          >
+          <Link to={`/workshop/${study.id}`} className="group block cursor-pointer">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[12px] font-bold text-white border border-white rounded-full px-2.5 py-0.5 leading-none">
-                #{study.number}
-              </span>
-              <span className="text-[11px] font-semibold text-[#777] uppercase tracking-[0.12em]">
+              <span className="mono-label !mb-0">#{study.number}</span>
+              <span className="text-[11px] font-medium text-ink-3 uppercase tracking-[0.12em]">
                 {study.date}
               </span>
             </div>
 
-            <div
-              className="w-full aspect-square rounded-sm overflow-hidden mb-4 transition-transform duration-300 group-hover:-translate-y-1"
-              style={{ backgroundColor: study.color }}
-            >
+            <div className="w-full aspect-square rounded-[var(--radius-card-quiet)] overflow-hidden mb-4 border border-rule transition-transform duration-300 group-hover:-translate-y-1">
               <img
                 src={study.thumbnail}
                 alt=""
@@ -88,23 +77,16 @@ export default function Workshop() {
               />
             </div>
 
-            <h2
-              className="text-[22px] sm:text-[24px] text-white leading-[1.15] lowercase group-hover:underline decoration-2 underline-offset-4 transition-all"
-              style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}
-            >
+            <h2 className="font-display font-semibold text-[20px] sm:text-[22px] text-ink leading-[1.15] group-hover:text-[var(--color-accent-2)] transition-colors">
               {study.title}
             </h2>
-            <p className="text-[13px] text-[#AAA] mt-2 leading-relaxed font-medium">
+            <p className="text-[13px] text-ink-2 mt-2 leading-relaxed font-medium">
               {study.desc}
             </p>
           </Link>
 
           <div className="flex justify-end mt-3">
-            <button
-              type="button"
-              onClick={handleShare}
-              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#888] hover:text-white border border-[#333] hover:border-[#555] rounded-full px-3 py-1.5 transition-colors"
-            >
+            <button type="button" onClick={handleShare} className="btn btn--outline btn--sm">
               {copied ? 'Copied' : 'Share'}
               {copied ? <Check size={12} /> : <Share2 size={12} />}
             </button>

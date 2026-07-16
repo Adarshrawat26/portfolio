@@ -81,7 +81,7 @@ export default function CustomCursor() {
             marginTop: hovering ? -5 : -3,
             marginLeft: hovering ? -5 : -3,
             borderRadius: '50%',
-            backgroundColor: '#5B4CF5',
+            backgroundColor: 'var(--color-accent-3)',
             transition: 'width 0.2s, height 0.2s, margin 0.2s',
           }}
         />
@@ -100,9 +100,9 @@ export default function CustomCursor() {
             marginTop:  hovering ? -24 : -16,
             marginLeft: hovering ? -24 : -16,
             borderRadius: '50%',
-            border: '1.5px solid #5B4CF5',
+            border: '1.5px solid var(--color-accent-3)',
             opacity: hovering ? 0.5 : 0.3,
-            backgroundColor: hovering ? 'rgba(91,76,245,0.06)' : 'transparent',
+            backgroundColor: hovering ? 'oklch(64% 0.22 18 / 0.08)' : 'transparent',
             transition: 'width 0.25s ease, height 0.25s ease, margin 0.25s ease, opacity 0.25s ease, background-color 0.25s ease',
           }}
         />

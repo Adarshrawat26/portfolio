@@ -32,7 +32,7 @@ export default function ResumeThanks({ open, onClose }: ResumeThanksProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[9998] flex items-center justify-center p-4 bg-black/30"
+          className="fixed inset-0 z-[9998] flex items-center justify-center p-4 bg-[oklch(20%_0.012_250/0.35)]"
           onClick={onClose}
         >
           <motion.div
@@ -40,28 +40,28 @@ export default function ResumeThanks({ open, onClose }: ResumeThanksProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full max-w-[340px] bg-white rounded-xl border border-[#EBEBEB] overflow-hidden"
+            className="w-full max-w-[340px] card overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-4 pb-0">
               <img
                 src="/thanks-dog.png"
                 alt="Thanks for downloading!"
-                className="w-full aspect-square object-cover rounded-lg"
+                className="w-full aspect-square object-cover rounded-[var(--radius-card-quiet)]"
               />
             </div>
 
             <div className="px-5 py-4 text-center">
-              <p className="text-[22px] font-bold text-[#111] leading-snug">
+              <p className="text-[20px] font-semibold text-ink leading-snug font-display">
                 Cheers for grabbing my resume!
               </p>
-              <p className="text-[16px] text-[#888] mt-2 font-medium leading-relaxed">
+              <p className="text-[14.5px] text-ink-2 mt-2 font-medium leading-relaxed">
                 Appreciate you taking the time — let&apos;s connect soon.
               </p>
               <button
                 type="button"
                 onClick={handleConnect}
-                className="mt-4 w-full bg-[#5B4CF5] hover:bg-[#4a3de0] text-white text-[14px] font-semibold px-4 py-2.5 rounded-lg transition-colors"
+                className="btn btn--sm mt-4 w-full"
               >
                 Connect
               </button>

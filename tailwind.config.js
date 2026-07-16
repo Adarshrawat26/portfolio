@@ -4,12 +4,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Nunito Sans', 'system-ui', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       colors: {
-        accent: '#6c63ff',
-        'accent-light': '#f0eeff',
-        'accent-border': '#dbd8ff',
+        paper: 'var(--color-paper)',
+        'paper-2': 'var(--color-paper-2)',
+        'paper-3': 'var(--color-paper-3)',
+        ink: 'var(--color-ink)',
+        'ink-2': 'var(--color-ink-2)',
+        'ink-3': 'var(--color-ink-3)',
+        pear: 'var(--color-accent)',
+        cyan: 'var(--color-accent-2)',
+        coral: 'var(--color-accent-3)',
+        rule: 'var(--color-rule)',
       },
     },
   },

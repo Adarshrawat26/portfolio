@@ -22,9 +22,9 @@ function ReadingProgress() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[100] h-[3px] bg-[#2a2a2a]">
+    <div className="fixed top-0 left-0 right-0 z-[100] h-[3px] bg-rule">
       <div
-        className="h-full bg-[#5B4CF5] transition-[width] duration-150"
+        className="h-full bg-[var(--color-accent-2)] transition-[width] duration-150"
         style={{ width: `${progress}%` }}
       />
     </div>
@@ -38,67 +38,56 @@ export default function WorkshopArticle() {
   if (slug !== study.id) return <Navigate to="/workshop" replace />;
 
   return (
-    <div className="min-h-screen w-full bg-[#121212]" style={{ fontFamily: "'Nunito Sans', system-ui, sans-serif" }}>
+    <div className="min-h-screen w-full bg-paper font-body">
       <ReadingProgress />
       <CustomCursor />
 
-      <header className="w-full max-w-[720px] mx-auto px-4 sm:px-6 pt-10 lg:pt-14 pb-8">
+      <header className="w-full max-w-[65ch] mx-auto px-4 sm:px-6 pt-10 lg:pt-16 pb-8">
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         >
           <Link
             to="/workshop"
-            className="inline-flex items-center gap-1.5 text-[13px] text-[#888] hover:text-white font-semibold transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-[13px] text-ink-2 hover:text-ink font-medium transition-colors mb-10"
           >
             <ArrowLeft size={14} />
             Back to workshop
           </Link>
 
           <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
-            <span className="text-[12px] font-bold text-white border border-white rounded-full px-2.5 py-0.5 leading-none">
-              #{study.number}
-            </span>
-            <span className="text-[11px] font-semibold text-[#777] uppercase tracking-[0.12em]">
+            <span className="mono-label !mb-0">#{study.number}</span>
+            <span className="text-[11px] font-medium text-ink-3 uppercase tracking-[0.12em]">
               {study.date} · {study.readTime}
             </span>
           </div>
 
-          <h1
-            className="text-[28px] sm:text-[42px] lg:text-[48px] text-white leading-[1.08] lowercase mb-6"
-            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, letterSpacing: '-0.02em' }}
-          >
+          <h1 className="font-display font-semibold text-[clamp(1.75rem,4vw+1rem,2.75rem)] text-ink leading-[1.1] tracking-[-0.02em] mb-6">
             {study.title}
           </h1>
 
-          <p className="text-[17px] text-[#AAA] leading-[1.7] font-medium">
+          <p className="text-[16px] text-ink-2 leading-[1.7] font-medium">
             {study.desc}
           </p>
         </motion.div>
       </header>
 
       <motion.main
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full bg-[#F9F9F9] rounded-t-[2rem] px-4 sm:px-6 lg:px-8 py-12 lg:py-16 pb-28"
+        transition={{ duration: 0.4, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full px-4 sm:px-6 py-4 pb-28"
       >
-        <div className="max-w-[720px] mx-auto">
+        <div className="max-w-[65ch] mx-auto">
           <CaseStudy embedded />
         </div>
 
-        <div className="max-w-[720px] mx-auto mt-16 pt-10 border-t border-[#EBEBEB] flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-4">
-          <Link
-            to="/workshop"
-            className="text-[13px] font-bold text-[#5B4CF5] border border-[#D4CEFF] bg-[#F0EEFF] hover:bg-[#E8E4FF] px-5 py-2.5 rounded-full transition-colors"
-          >
+        <div className="max-w-[65ch] mx-auto mt-16 pt-10 border-t border-rule flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-4">
+          <Link to="/workshop" className="btn btn--outline btn--sm">
             ← All stories
           </Link>
-          <Link
-            to="/"
-            className="text-[13px] font-bold text-[#888] hover:text-[#111] transition-colors"
-          >
+          <Link to="/" className="text-[13px] font-medium text-ink-2 hover:text-ink transition-colors">
             View live portfolio →
           </Link>
         </div>

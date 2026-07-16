@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
+import { Send, Check } from 'lucide-react';
 
 const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/adarshrawat474@gmail.com';
 
@@ -52,77 +52,74 @@ export default function Footer() {
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45 }}
-      className="w-full bg-white border border-[#EBEBEB] rounded-2xl overflow-hidden"
+      className="w-full"
     >
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 p-4">
+      {/* Ft5 Statement — one closing line, then the form as the page's character moment */}
+      <div className="pb-8">
+        <p className="font-display font-semibold text-[clamp(1.75rem,5vw,3rem)] leading-[1.05] text-ink tracking-[-0.02em] max-w-[22ch]">
+          Suggestions, collabs, or just a hi — <span className="hl hl--cyan">all welcome</span>.
+        </p>
+      </div>
 
-        {/* Left — dog image */}
-        <div className="relative h-64 md:h-auto min-h-[280px] overflow-hidden rounded-xl">
-          <img
-            src="/dog.jpg"
-            alt="Say hello"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
-
-        {/* Right — form */}
-        <div className="p-7 flex flex-col justify-between gap-5">
-          <div>
-            <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#999] mb-1">Get in touch</p>
-            <h3 className="text-[26px] font-bold text-[#111]">Leave a message</h3>
-            <p className="text-[15px] text-[#999] mt-1">Suggestions, collabs, or just a hi — all welcome.</p>
+      <div className="card bg-[var(--color-accent-tint)] overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-4 p-4">
+          <div className="relative h-56 md:h-auto min-h-[240px] overflow-hidden rounded-[var(--radius-card-quiet)]">
+            <img
+              src="/dog.jpg"
+              alt="Say hello"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="w-full px-4 py-3 text-[15px] border border-[#EBEBEB] rounded-lg bg-[#FAFAFA] text-[#111] placeholder-[#CCC] focus:outline-none focus:border-[#5B4CF5] transition-colors font-medium"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full px-4 py-3 text-[15px] border border-[#EBEBEB] rounded-lg bg-[#FAFAFA] text-[#111] placeholder-[#CCC] focus:outline-none focus:border-[#5B4CF5] transition-colors font-medium"
-            />
-            <textarea
-              name="message"
-              placeholder="Your suggestion..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              rows={4}
-              required
-              className="w-full px-4 py-3 text-[15px] border border-[#EBEBEB] rounded-lg bg-[#FAFAFA] text-[#111] placeholder-[#CCC] focus:outline-none focus:border-[#5B4CF5] transition-colors resize-none font-medium"
-            />
-            <button
-              type="submit"
-              disabled={status === 'sending'}
-              className="flex items-center justify-center gap-2 bg-[#5B4CF5] hover:bg-[#4a3de0] disabled:opacity-60 disabled:cursor-not-allowed text-white text-[16px] font-semibold px-4 py-3 rounded-lg transition-colors group"
-            >
-              {status === 'sending' && 'Sending...'}
-              {status === 'sent' && '✓ Sent!'}
-              {status === 'error' && 'Something went wrong — try again'}
-              {status === 'idle' && (
-                <>
-                  Send Message
-                  <Send size={13} className="group-hover:translate-x-0.5 transition-transform" />
-                </>
-              )}
-            </button>
-          </form>
+          <div className="p-4 sm:p-6 flex flex-col justify-center gap-4">
+            <p className="mono-label">Get in touch</p>
 
-          <p className="text-[13px] text-[#CCC] font-medium text-center">
-            Adarsh Rawat · adarshrawat474@gmail.com · Updated June 2026
-          </p>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="w-full px-4 py-3 text-[15px] rounded-[var(--radius-input)] bg-paper border border-rule text-ink placeholder-ink-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-1 transition-colors font-medium"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full px-4 py-3 text-[15px] rounded-[var(--radius-input)] bg-paper border border-rule text-ink placeholder-ink-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-1 transition-colors font-medium"
+              />
+              <textarea
+                name="message"
+                placeholder="Your suggestion…"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                rows={3}
+                required
+                className="w-full px-4 py-3 text-[15px] rounded-[var(--radius-input)] bg-paper border border-rule text-ink placeholder-ink-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-1 transition-colors resize-none font-medium"
+              />
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="btn btn--cyan self-start"
+              >
+                {status === 'sending' && 'Sending…'}
+                {status === 'sent' && (<><Check size={14} /> Sent</>)}
+                {status === 'error' && 'Something went wrong — try again'}
+                {status === 'idle' && (<><Send size={13} /> Send message</>)}
+              </button>
+            </form>
+          </div>
         </div>
+      </div>
 
+      <div className="flex items-center justify-between mt-6 pt-4 border-t border-rule">
+        <span className="font-display font-semibold text-ink text-[15px]">Adarsh Rawat</span>
+        <span className="text-[12.5px] text-ink-3 font-medium">adarshrawat474@gmail.com · Updated Jul 2026</span>
       </div>
     </motion.footer>
   );
