@@ -78,6 +78,30 @@ export const inventions = [
     previewImage: resumeRoastPreview,
     status: 'Live',
   },
+  {
+    name: 'WC 2026 Analyzer',
+    tagline: 'A Dixon-Coles Poisson prediction engine for the FIFA World Cup 2026, walk-forward backtested on real tournament history and continuously validated against the live 2026 results as they happen.',
+    desc: 'Statistical match-outcome engine covering 8 real World Cups of backtesting, live-validated against the 2026 tournament in progress.',
+    highlights: [
+      'Walk-forward backtesting across 8 real World Cups (1994–2022, 500 matches) with zero data leakage — coefficients rebuilt using only data that existed before each tournament',
+      'Live-validated against the actual 2026 tournament: 63% outcome accuracy on the 100 real matches played so far',
+      '12-layer feature engine — opponent-adjusted Elo, FIFA rankings, squad quality, form, injuries, tactics, venue/altitude',
+      'Fully automated daily pipeline (GitHub Actions) — syncs live results, retrains, re-simulates the tournament, redeploys with zero manual steps',
+    ],
+    tags: [
+      { name: 'Python', icon: 'python' },
+      { name: 'NumPy', icon: 'numpy' },
+      { name: 'pandas', icon: 'pandas' },
+      { name: 'SciPy', icon: 'scipy' },
+      { name: 'scikit-learn', icon: 'sklearn' },
+      { name: 'SQLite', icon: 'sqlite' },
+      { name: 'Vanilla JS', icon: 'javascript' },
+      { name: 'GitHub Actions', icon: 'githubactions' },
+      { name: 'Vercel', icon: 'vercel' },
+    ],
+    url: 'https://wc2026-analyzer-omega.vercel.app/',
+    status: 'Live',
+  },
 ];
 
 export const projects = [

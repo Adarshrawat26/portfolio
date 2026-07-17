@@ -135,7 +135,7 @@ export default function App() {
         </motion.header>
 
         {/* ── BENTO GRID — stats · experience · skills · inventions · testimonial · education ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[minmax(120px,auto)] gap-4 lg:gap-5">
+        <div id="overview" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[minmax(120px,auto)] gap-4 lg:gap-5">
 
           {/* Stats — wide banner tile */}
           <Tile span="sm:col-span-2 lg:col-span-4" tint="coral" className="reveal" style={{ '--i': 0 } as React.CSSProperties}>
@@ -150,7 +150,7 @@ export default function App() {
           </Tile>
 
           {/* Experience — tall wide tile */}
-          <div id="experience" className="sm:col-span-2 lg:col-span-2 lg:row-span-2">
+          <div className="sm:col-span-2 lg:col-span-2 lg:row-span-2">
           <Tile span="h-full" tint="pear" className="reveal" style={{ '--i': 1 } as React.CSSProperties}>
             <TileLabel>Experience</TileLabel>
             <div className="space-y-5">
@@ -193,7 +193,7 @@ export default function App() {
           </div>
 
           {/* Testimonial */}
-          <div id="testimonial" className="sm:col-span-2 lg:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-2">
           <Tile span="h-full" tint="plain" className="reveal" style={{ '--i': 3 } as React.CSSProperties}>
             <p className="text-base text-ink-2 leading-relaxed font-normal">
               &ldquo;Adarsh, you have been the backbone of NeuAnchor projects. I commend you for the your skills, your patience to operate with multiple stakeholders, the way you captured our ideas and converted them to reality, the calm you maintained during multiple last minute changes… and so on… You and your entire team of Blu Parrot.&rdquo;
@@ -218,7 +218,7 @@ export default function App() {
           </div>
 
           {/* Education — small tile */}
-          <div id="education" className="sm:col-span-2 lg:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-2">
           <Tile span="h-full" tint="plain" className="reveal" style={{ '--i': 4 } as React.CSSProperties}>
             <TileLabel>Education</TileLabel>
             <div className="space-y-4">

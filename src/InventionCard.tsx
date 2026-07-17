@@ -94,10 +94,11 @@ export default function InventionCard({ item, index }: { item: Invention; index:
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-2xs font-semibold text-[var(--color-accent-3-deep)] hover:underline underline-offset-2 shrink-0"
+              className="btn btn--outline btn--sm min-h-[44px] shrink-0"
+              aria-label={`Visit ${hostname}`}
             >
-              {hostname}
-              <ArrowUpRight size={12} />
+              Visit site
+              <ArrowUpRight size={14} />
             </a>
           </div>
         </div>

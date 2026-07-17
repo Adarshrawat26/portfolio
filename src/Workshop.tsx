@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Share2, Check } from 'lucide-react';
 import CustomCursor from './CustomCursor';
-import { workshopStudy, workshopTagline } from './workshopData';
+import { workshopStudies, workshopTagline, type WorkshopStudy } from './workshopData';
 
-export default function Workshop() {
-  const study = workshopStudy;
+function StudyCard({ study, index }: { study: WorkshopStudy; index: number }) {
   const [copied, setCopied] = useState(false);
-
   const articleUrl = `${window.location.origin}/workshop/${study.id}`;
 
   const handleShare = async () => {
@@ -28,6 +26,48 @@ export default function Workshop() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.08 + index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+      className="max-w-sm"
+    >
+      <Link to={`/workshop/${study.id}`} className="group block cursor-pointer">
+        <div className="flex items-center justify-between mb-3">
+          <span className="mono-label !mb-0">#{study.number}</span>
+          <span className="text-3xs font-medium text-ink-3 uppercase tracking-[0.12em]">
+            {study.date}
+          </span>
+        </div>
+
+        <div className="w-full aspect-square rounded-[var(--radius-card-quiet)] overflow-hidden mb-4 border border-rule transition-transform duration-300 group-hover:-translate-y-1">
+          <img
+            src={study.thumbnail}
+            alt=""
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+        </div>
+
+        <h2 className="font-display font-bold text-lg sm:text-xl text-ink leading-[1.15] group-hover:text-[var(--color-accent-2)] transition-colors">
+          {study.title}
+        </h2>
+        <p className="text-xs text-ink-2 mt-2 leading-relaxed font-normal">
+          {study.desc}
+        </p>
+      </Link>
+
+      <div className="flex justify-end mt-3">
+        <button type="button" onClick={handleShare} className="btn btn--outline btn--sm">
+          {copied ? 'Copied' : 'Share'}
+          {copied ? <Check size={12} /> : <Share2 size={12} />}
+        </button>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function Workshop() {
   return (
     <div className="min-h-screen w-full bg-paper font-body">
       <CustomCursor />
@@ -55,43 +95,11 @@ export default function Workshop() {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-sm"
-        >
-          <Link to={`/workshop/${study.id}`} className="group block cursor-pointer">
-            <div className="flex items-center justify-between mb-3">
-              <span className="mono-label !mb-0">#{study.number}</span>
-              <span className="text-3xs font-medium text-ink-3 uppercase tracking-[0.12em]">
-                {study.date}
-              </span>
-            </div>
-
-            <div className="w-full aspect-square rounded-[var(--radius-card-quiet)] overflow-hidden mb-4 border border-rule transition-transform duration-300 group-hover:-translate-y-1">
-              <img
-                src={study.thumbnail}
-                alt=""
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-              />
-            </div>
-
-            <h2 className="font-display font-bold text-lg sm:text-xl text-ink leading-[1.15] group-hover:text-[var(--color-accent-2)] transition-colors">
-              {study.title}
-            </h2>
-            <p className="text-xs text-ink-2 mt-2 leading-relaxed font-normal">
-              {study.desc}
-            </p>
-          </Link>
-
-          <div className="flex justify-end mt-3">
-            <button type="button" onClick={handleShare} className="btn btn--outline btn--sm">
-              {copied ? 'Copied' : 'Share'}
-              {copied ? <Check size={12} /> : <Share2 size={12} />}
-            </button>
-          </div>
-        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
+          {workshopStudies.map((study, i) => (
+            <StudyCard key={study.id} study={study} index={i} />
+          ))}
+        </div>
 
       </main>
     </div>

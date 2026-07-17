@@ -1,10 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactElement } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import CustomCursor from './CustomCursor';
 import CaseStudy from './CaseStudy';
-import { workshopStudy } from './workshopData';
+import WC26CaseStudy from './WC26CaseStudy';
+import { workshopStudies } from './workshopData';
+
+const articleBySlug: Record<string, () => ReactElement> = {
+  'portfolio-build': () => <CaseStudy embedded />,
+  'wc26-analyzer': () => <WC26CaseStudy embedded />,
+};
 
 function ReadingProgress() {
   const [progress, setProgress] = useState(0);
@@ -33,9 +39,10 @@ function ReadingProgress() {
 
 export default function WorkshopArticle() {
   const { slug } = useParams();
-  const study = workshopStudy;
+  const study = workshopStudies.find((s) => s.id === slug);
+  const renderArticle = slug ? articleBySlug[slug] : undefined;
 
-  if (slug !== study.id) return <Navigate to="/workshop" replace />;
+  if (!study || !renderArticle) return <Navigate to="/workshop" replace />;
 
   return (
     <div className="min-h-screen w-full bg-paper font-body">
@@ -80,7 +87,7 @@ export default function WorkshopArticle() {
         className="w-full px-4 sm:px-6 py-4 pb-28"
       >
         <div className="max-w-[65ch] mx-auto">
-          <CaseStudy embedded />
+          {renderArticle()}
         </div>
 
         <div className="max-w-[65ch] mx-auto mt-16 pt-10 border-t border-rule flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-4">

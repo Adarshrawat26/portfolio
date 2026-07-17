@@ -5,11 +5,9 @@ const MOBILE_MAX_WIDTH = 767;
 
 const sections = [
   { id: 'hero',        label: 'Intro' },
-  { id: 'experience',  label: 'Experience' },
+  { id: 'overview',    label: 'Overview' },
   { id: 'inventions',  label: 'Inventions' },
   { id: 'projects',    label: 'Projects' },
-  { id: 'education',   label: 'Education' },
-  { id: 'testimonial', label: 'Testimonial' },
   { id: 'gallery',     label: 'Gallery' },
   { id: 'contact',     label: 'Contact' },
 ];
